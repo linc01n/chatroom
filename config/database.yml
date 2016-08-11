@@ -24,3 +24,5 @@ production:
   adapter: postgresql
   encoding: unicode
   database: chatroom_production
+  host: localhost
+  username: postgres
