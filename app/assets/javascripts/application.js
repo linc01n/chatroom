@@ -14,6 +14,7 @@
 //= require tether
 //= require bootstrap
 //= require js.cookie
+//= require rails-timeago
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
