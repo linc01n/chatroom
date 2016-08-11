@@ -5,3 +5,14 @@
 
 %form
   %input{type: 'text', 'data-behaviour': 'room_speaker'}
+
+
+#userModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "userLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %h4#userLabel.modal-title Input Nickname:
+      .modal-body
+        %input#user
+      .modal-footer
+        %button.btn.btn-primary{:type => "button", 'data-dismiss': 'modal'} Submit
