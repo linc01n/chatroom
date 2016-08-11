@@ -1,3 +1,4 @@
-.message
-  %p
-    = "#{message.user}: #{message.content}"
+- cache message do
+  .message
+    %p
+      = "#{message.user}: #{message.content}"
