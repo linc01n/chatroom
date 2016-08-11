@@ -1,4 +1,9 @@
 - cache message do
   .message
-    %p
-      = "#{message.user}: #{message.content}"
+    .meta
+      .user
+        = message.user
+      .timestamp
+        = timeago_tag message.created_at
+    %p.content
+      = message.content

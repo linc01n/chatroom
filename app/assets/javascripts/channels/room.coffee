@@ -15,6 +15,7 @@ App.room = App.cable.subscriptions.create "RoomChannel",
     $('#messages').animate
       scrollTop: $('#messages').prop('scrollHeight')
     , 500
+    $('time').timeago()
 
   speak: (user, message) ->
     @perform 'speak',

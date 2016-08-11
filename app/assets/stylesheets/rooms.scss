@@ -26,3 +26,18 @@ html,body {
     justify-content: center;
     flex-direction: column;
 }
+
+.meta {
+    display: flex;
+    flex-direction: row;
+}
+
+.timestamp>time {
+    padding-left: 20px;
+    color: grey;
+    font-size: 10px;
+}
+
+.user {
+    font-weight: bold;
+}
