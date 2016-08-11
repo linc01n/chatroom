@@ -2,7 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+html,body {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+
+.container{
+    width:100%;
+}
+
 #messages {
     overflow-y: auto;
     height: 400px;
+    word-break:break-all;
+}
+
+.chatroom {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
