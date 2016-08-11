@@ -1,5 +1,9 @@
 App.room = App.cable.subscriptions.create "RoomChannel",
   connected: ->
+    $('#messages').animate
+      scrollTop: $('#messages').prop('scrollHeight')
+    , 500
+
     # Called when the subscription is ready for use on the server
 
   disconnected: ->
@@ -8,6 +12,9 @@ App.room = App.cable.subscriptions.create "RoomChannel",
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
     $('#messages').append(data['message'])
+    $('#messages').animate
+      scrollTop: $('#messages').prop('scrollHeight')
+    , 500
 
   speak: (user, message) ->
     @perform 'speak',
@@ -23,11 +30,15 @@ $(document).on 'keypress', '[data-behaviour~=room_speaker]', (event) ->
     event.preventDefault()
 
 $(document).on 'turbolinks:load', ->
-  $('#userModal').modal() unless Cookies.get('user')
+  if Cookies.get('user')
+    $('#voice').focus()
+  else
+    $('#userModal').modal()
 
   $('#userModal').on 'hide.bs.modal', ->
     user = $('#user').val()
     Cookies.set('user', user)
+    $('#voice').focus()
 
   $('#user').on 'keypress', (event) ->
     if event.keyCode is 13 # return = set
