@@ -26,9 +26,10 @@ App.room = App.cable.subscriptions.create "RoomChannel",
 $(document).on 'keypress', '[data-behaviour~=room_speaker]', (event) ->
   if event.keyCode is 13 # return = send
     user = Cookies.get('user')
-    App.room.speak user, event.target.value
-    event.target.value = ''
-    event.preventDefault()
+    if event.target.value.length > 0
+      App.room.speak user, event.target.value
+      event.target.value = ''
+      event.preventDefault()
 
 $(document).on 'turbolinks:load', ->
   if Cookies.get('user')
@@ -42,5 +43,9 @@ $(document).on 'turbolinks:load', ->
     $('#voice').focus()
 
   $('#user').on 'keypress', (event) ->
-    if event.keyCode is 13 # return = set
+    if event.keyCode is 13 and event.target.value.trim().length > 0 # return = set
+      $('#userModal').modal('hide')
+
+  $('#submit').on 'click', (event) ->
+    if $('#user').val().trim().length > 0
       $('#userModal').modal('hide')
