@@ -52,3 +52,8 @@ gem 'pry-doc'
 gem 'method_source'
 gem 'haml'
 gem 'bootstrap', '~> 4.0.0.alpha3.1'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
+gem 'js_cookie_rails'
