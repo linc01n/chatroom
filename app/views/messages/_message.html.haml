@@ -2,8 +2,8 @@
   .message
     .meta
       .user
-        = message.user
+        = sanitize(message.user)
       .timestamp
         = timeago_tag message.created_at
     .content
-      = Redcarpet::Markdown.new(MdEmoji::Render, :no_intra_emphasis => true).render(message.content).html_safe
+      = sanitize(Redcarpet::Markdown.new(MdEmoji::Render, :no_intra_emphasis => true).render(message.content)).html_safe
