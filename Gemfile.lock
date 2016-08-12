@@ -7,6 +7,31 @@ GIT
       capistrano-bundler
       puma (~> 3.4)
 
+GIT
+  remote: git://github.com/seuros/capistrano-sidekiq.git
+  revision: 416d1ba6ac29e550b506468c45053b9fe65347b3
+  specs:
+    capistrano-sidekiq (0.5.4)
+      capistrano
+      sidekiq (>= 3.4)
+
+GIT
+  remote: git://github.com/sinatra/rack-protection.git
+  revision: 7e723a74763bb83989d1249cdceb9cceb2ee6f01
+  specs:
+    rack-protection (2.0.0)
+      rack
+
+GIT
+  remote: git://github.com/sinatra/sinatra.git
+  revision: 285275b42fa1bf096a5c9559b6cead2f31b65b66
+  specs:
+    sinatra (2.0.0.pre.alpha)
+      mustermann (~> 0.4)
+      rack (~> 2.0)
+      rack-protection (~> 2.0)
+      tilt (~> 2.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -116,6 +141,8 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
+    mustermann (0.4.0)
+      tool (~> 0.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (3.2.0)
@@ -179,8 +206,6 @@ GEM
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       redis (~> 3.2, >= 3.2.1)
-    sinatra (1.0)
-      rack (>= 1.0)
     slop (3.6.0)
     spring (1.7.2)
     spring-watcher-listen (2.0.0)
@@ -200,6 +225,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
+    tool (0.2.3)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
@@ -225,6 +251,7 @@ DEPENDENCIES
   byebug
   capistrano-rails (~> 1.1)
   capistrano-rvm
+  capistrano-sidekiq!
   capistrano3-puma!
   coffee-rails (~> 4.2)
   haml
@@ -237,12 +264,13 @@ DEPENDENCIES
   pry
   pry-doc
   puma (~> 3.0)
+  rack-protection!
   rails (~> 5.0.0)
   rails-assets-tether (>= 1.1.0)!
   rails-timeago (~> 2.0)
   sass-rails (~> 5.0)
   sidekiq
-  sinatra
+  sinatra!
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

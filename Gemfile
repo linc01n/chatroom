@@ -62,5 +62,7 @@ source 'https://rails-assets.org' do
 end
 gem 'js_cookie_rails'
 gem 'rails-timeago', '~> 2.0'
-gem 'sinatra', :require => false
+gem 'sinatra', :require => false, github: 'sinatra/sinatra'
+gem "rack-protection", github: 'sinatra/rack-protection'
 gem 'sidekiq'
+gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
