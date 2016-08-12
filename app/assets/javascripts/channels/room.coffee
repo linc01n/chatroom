@@ -36,10 +36,14 @@ $(document).on 'turbolinks:load', ->
 
   unless Cookies.get('user')
     $('#userModal').modal()
+    $('#user').focus()
 
   $('#userModal').on 'hide.bs.modal', ->
     user = $('#user').val()
     Cookies.set('user', user)
+
+  $('#userModal').on 'hidden.bs.modal', ->
+    $('#voice').focus()
 
   $('#user').on 'keypress', (event) ->
     if event.keyCode is 13 and event.target.value.trim().length > 0 # return = set
@@ -48,8 +52,3 @@ $(document).on 'turbolinks:load', ->
   $('#submit').on 'click', (event) ->
     if $('#user').val().trim().length > 0
       $('#userModal').modal('hide')
-
-  $('#voice').blur ->
-    setTimeout ->
-      $('#voice').focus()
-    , 0
