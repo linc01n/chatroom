@@ -32,15 +32,14 @@ $(document).on 'keypress', '[data-behaviour~=room_speaker]', (event) ->
       event.preventDefault()
 
 $(document).on 'turbolinks:load', ->
-  if Cookies.get('user')
-    $('#voice').focus()
-  else
+  $('#voice').focus()
+
+  unless Cookies.get('user')
     $('#userModal').modal()
 
   $('#userModal').on 'hide.bs.modal', ->
     user = $('#user').val()
     Cookies.set('user', user)
-    $('#voice').focus()
 
   $('#user').on 'keypress', (event) ->
     if event.keyCode is 13 and event.target.value.trim().length > 0 # return = set
@@ -49,3 +48,8 @@ $(document).on 'turbolinks:load', ->
   $('#submit').on 'click', (event) ->
     if $('#user').val().trim().length > 0
       $('#userModal').modal('hide')
+
+  $('#voice').blur ->
+    setTimeout ->
+      $('#voice').focus()
+    , 0
