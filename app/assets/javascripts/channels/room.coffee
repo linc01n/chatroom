@@ -35,7 +35,7 @@ $(document).on 'turbolinks:load', ->
   $('#voice').focus()
 
   unless Cookies.get('user')
-    $('#userModal').modal()
+    $('#userModal').modal({backdrop: 'static', keyboard: false})
     $('#user').focus()
 
   $('#userModal').on 'hide.bs.modal', ->
