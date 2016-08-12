@@ -62,3 +62,5 @@ source 'https://rails-assets.org' do
 end
 gem 'js_cookie_rails'
 gem 'rails-timeago', '~> 2.0'
+gem 'sinatra', :require => false
+gem 'sidekiq'
